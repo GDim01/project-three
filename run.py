@@ -69,7 +69,6 @@ def data_selection():
     Selects the relevant data chosen by the user and updates the
     operational_data variable for use in other functions
     """
-    global DATA
     global operational_data
     data_choice = input("Select the day to analyse 1-7\n")
     if verify_selection(data_choice):
@@ -105,7 +104,8 @@ def average_speed():
     list_of_speeds = operational_data[1]
     list_of_speeds_without_title = list_of_speeds[1:]
     total_speed = 0
-    list_of_speeds_ints = [int(speed) for speed in list_of_speeds_without_title]
+    list_of_speeds_ints = \
+        [int(speed) for speed in list_of_speeds_without_title]
     for speed in list_of_speeds_ints:
         total_speed += speed
     result = total_speed / len(list_of_speeds_ints)
@@ -119,7 +119,8 @@ def total_speeding():
     list_of_speeds = operational_data[1]
     list_of_speeds_without_title = list_of_speeds[1:]
     total_speeders = 0
-    list_of_speeds_ints = [int(speed) for speed in list_of_speeds_without_title]
+    list_of_speeds_ints = \
+        [int(speed) for speed in list_of_speeds_without_title]
     for speed in list_of_speeds_ints:
         if speed > 80:
             total_speeders += 1
