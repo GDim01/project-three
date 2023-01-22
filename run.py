@@ -94,7 +94,6 @@ def data_selection():
     elif data_choice == "7":
         new_data = operational_data[12:14]
         operational_data = new_data
-    print(operational_data)
 
 
 def average_speed():
