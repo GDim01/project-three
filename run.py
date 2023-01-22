@@ -22,9 +22,10 @@ def function_select():
     Allows the user to choose which function of the program they wish to use.
     """
     while True:
-        print("Please select a function to run from the following list:\n")
+        print("\nPlease select a function to run from the following list:\n")
         print("1 - Select Day\n2 - Calculate average speed")
-        print("3 - Calculate total speeding\n0 - Exit program\n")
+        print("3 - Calculate total speeding\n4 - Show no. cars each hour")
+        print("0 - Exit program\n")
 
         selection = input("Enter your selection here:\n")
         if verify_selection(selection):
@@ -36,8 +37,13 @@ def function_select():
             average_speed()
         elif selection == "3":
             total_speeding()
-        else:
+        elif selection == "4":
+            hourly_count()
+        elif selection == "0":
             print("Exiting program")
+            break
+        else:
+            print("Please select a program from the above list")
 
 
 def verify_selection(selection):
@@ -47,9 +53,9 @@ def verify_selection(selection):
     """
     try:
         choice = int(selection)
-        if (choice > 3 or choice < 0):
+        if (choice > 8 or choice < 0):
             raise ValueError(
-                f"Select a valid program 0-3. You entered {choice}"
+                f"Select a valid program. You entered {choice}"
             )
     except ValueError as error:
         print(f"Invalid data: {error}, please try again.\n")
@@ -65,7 +71,9 @@ def data_selection():
     """
     global DATA
     global operational_data
-    data_choice = input("Select the day to analyse 1-7 (0 for all)\n")
+    data_choice = input("Select the day to analyse 1-7\n")
+    if verify_selection(data_choice):
+        print(f"You have selected day {data_choice}\n")
     if data_choice == "1":
         new_data = operational_data[0:2]
         operational_data = new_data
@@ -86,9 +94,6 @@ def data_selection():
         operational_data = new_data
     elif data_choice == "7":
         new_data = operational_data[12:14]
-        operational_data = new_data
-    else:
-        new_data = DATA
         operational_data = new_data
     print(operational_data)
 
@@ -121,10 +126,73 @@ def total_speeding():
     print(f"The total number of cars over 80km/h were {total_speeders}\n")
 
 
+def hourly_count():
+    """
+    Counts the number of cars at each hour of the selected date
+    """
+    list_of_times = operational_data[0]
+    list_of_times_without_title = list_of_times[1:]
+    hours_list = []
+    hourly_counts = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    for hour in list_of_times_without_title:
+        hours_list.append(hour[0:2])
+    for hour in hours_list:
+        if hour == "00":
+            hourly_counts[0] += 1
+        elif hour == "01":
+            hourly_counts[1] += 1
+        elif hour == "02":
+            hourly_counts[2] += 1
+        elif hour == "03":
+            hourly_counts[3] += 1
+        elif hour == "04":
+            hourly_counts[4] += 1
+        elif hour == "05":
+            hourly_counts[5] += 1
+        elif hour == "06":
+            hourly_counts[6] += 1
+        elif hour == "07":
+            hourly_counts[7] += 1
+        elif hour == "08":
+            hourly_counts[8] += 1
+        elif hour == "09":
+            hourly_counts[9] += 1
+        elif hour == "10":
+            hourly_counts[10] += 1
+        elif hour == "11":
+            hourly_counts[11] += 1
+        elif hour == "12":
+            hourly_counts[12] += 1
+        elif hour == "13":
+            hourly_counts[13] += 1
+        elif hour == "14":
+            hourly_counts[14] += 1
+        elif hour == "15":
+            hourly_counts[15] += 1
+        elif hour == "16":
+            hourly_counts[16] += 1
+        elif hour == "17":
+            hourly_counts[17] += 1
+        elif hour == "18":
+            hourly_counts[18] += 1
+        elif hour == "19":
+            hourly_counts[19] += 1
+        elif hour == "20":
+            hourly_counts[20] += 1
+        elif hour == "21":
+            hourly_counts[21] += 1
+        elif hour == "22":
+            hourly_counts[22] += 1
+        elif hour == "23":
+            hourly_counts[23] += 1
+    print(f"The number of cars for each hour, starting at '00' is {hourly_counts}")
+
+
 def main():
     """
     Runs all program functions
     """
+    data_selection()
     function_select()
 
 
