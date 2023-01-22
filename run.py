@@ -16,4 +16,14 @@ survey_data = SHEET.worksheet('survey_data')
 
 data = survey_data.get_all_values()
 
-print(data)
+
+def function_select():
+    """
+    Allows the user to choose which function of the program they wish to use.
+    """
+    print("Please select a function to run from the following list:\n")
+    print("1 - Select Day\n2 - Calculate average speed")
+    print("3 - Calculate total speeding")
+
+
+function_select()
