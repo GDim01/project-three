@@ -101,6 +101,7 @@ def average_speed():
     """
     Calculates the average speed on the selected date
     """
+    global operational_data
     list_of_speeds = operational_data[1]
     list_of_speeds_without_title = list_of_speeds[1:]
     total_speed = 0
@@ -116,6 +117,7 @@ def total_speeding():
     """
     Calculates the number of cars driving over 80km/h on the selected date
     """
+    global operational_data
     list_of_speeds = operational_data[1]
     list_of_speeds_without_title = list_of_speeds[1:]
     total_speeders = 0
@@ -131,6 +133,7 @@ def hourly_count():
     """
     Counts the number of cars at each hour of the selected date
     """
+    global operational_data
     list_of_times = operational_data[0]
     list_of_times_without_title = list_of_times[1:]
     hours_list = []
