@@ -28,14 +28,14 @@ def function_select():
 
         selection = input("Enter your selection here:\n")
         if verify_selection(selection):
-            print(f"You have selected program {selection}")
+            print(f"You have selected program {selection}\n")
 
         if selection == "1":
             data_selection()
         elif selection == "2":
             average_speed()
         elif selection == "3":
-            pass
+            total_speeding()
         else:
             print("Exiting program")
 
@@ -97,7 +97,6 @@ def average_speed():
     """
     Calculates the average speed on the selected date
     """
-    global operational_data
     list_of_speeds = operational_data[1]
     list_of_speeds_without_title = list_of_speeds[1:]
     total_speed = 0
@@ -106,6 +105,20 @@ def average_speed():
         total_speed += speed
     result = total_speed / len(list_of_speeds_ints)
     print(f"The average speed during the selected date was {result}\n")
+
+
+def total_speeding():
+    """
+    Calculates the number of cars driving over 80km/h on the selected date
+    """
+    list_of_speeds = operational_data[1]
+    list_of_speeds_without_title = list_of_speeds[1:]
+    total_speeders = 0
+    list_of_speeds_ints = [int(speed) for speed in list_of_speeds_without_title]
+    for speed in list_of_speeds_ints:
+        if speed > 80:
+            total_speeders += 1
+    print(f"The total number of cars over 80km/h were {total_speeders}\n")
 
 
 def main():
