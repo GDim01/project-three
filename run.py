@@ -15,6 +15,7 @@ SHEET = GSPREAD_CLIENT.open('speed_survey')
 survey_data = SHEET.worksheet('survey_data')
 
 data = survey_data.get_all_values()
+operational_data = data
 
 
 def function_select():
@@ -31,11 +32,11 @@ def function_select():
             print(f"You have selected program {selection}")
             break
 
-    if selection == 1:
+    if selection == "1":
         data_selection()
-    elif selection == 2:
+    elif selection == "2":
         pass
-    elif selection == 3:
+    elif selection == "3":
         pass
     else:
         pass
@@ -60,8 +61,33 @@ def verify_selection(selection):
 
 
 def data_selection():
-    selected_data = []
-
+    global data
+    global operational_data
+    data_choice = input("Select the day to analyse 1-7 (0 for all)\n")
+    if data_choice == "1":
+        new_data = operational_data[0:2]
+        print(new_data)
+    elif data_choice == "2":
+        new_data = operational_data[2:4]
+        print(new_data)
+    elif data_choice == "3":
+        new_data = operational_data[4:6]
+        print(new_data)
+    elif data_choice == "4":
+        new_data = operational_data[6:8]
+        print(new_data)
+    elif data_choice == "5":
+        new_data = operational_data[8:10]
+        print(new_data)
+    elif data_choice == "6":
+        new_data = operational_data[10:12]
+        print(new_data)
+    elif data_choice == "7":
+        new_data = operational_data[12:14]
+        print(new_data)
+    else:
+        new_data = data
+        print(new_data)
 
 
 def main():
@@ -71,5 +97,5 @@ def main():
     function_select()
 
 
-print("Welcome to Speed Survey Data Analysis")
+print("Welcome to Speed Survey Data Analysis\n")
 main()
