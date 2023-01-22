@@ -21,9 +21,55 @@ def function_select():
     """
     Allows the user to choose which function of the program they wish to use.
     """
-    print("Please select a function to run from the following list:\n")
-    print("1 - Select Day\n2 - Calculate average speed")
-    print("3 - Calculate total speeding")
+    while True:
+        print("Please select a function to run from the following list:\n")
+        print("1 - Select Day\n2 - Calculate average speed")
+        print("3 - Calculate total speeding\n0 - Exit program\n")
+
+        selection = input("Enter your selection here:\n")
+        if verify_selection(selection):
+            print(f"You have selected program {selection}")
+            break
+
+    if selection == 1:
+        data_selection()
+    elif selection == 2:
+        pass
+    elif selection == 3:
+        pass
+    else:
+        pass
 
 
-function_select()
+def verify_selection(selection):
+    """
+    Verifies the function_select input to ensure the user selects an available
+    program
+    """
+    try:
+        choice = int(selection)
+        if (choice > 3 or choice < 0):
+            raise ValueError(
+                f"Select a valid program 0-3. You entered {choice}"
+            )
+    except ValueError as e:
+        print(f"Invalid data: {e}, please try again.\n")
+        return False
+
+    return True
+
+
+def data_selection():
+    selected_data = []
+
+
+
+def main():
+    """
+    Runs all program functions
+    """
+    function_select()
+
+
+print("Welcome to Speed Survey Data Analysis")
+main()
