@@ -105,8 +105,7 @@ def average_speed():
     list_of_speeds = operational_data[1]
     list_of_speeds_without_title = list_of_speeds[1:]
     total_speed = 0
-    list_of_speeds_ints = \
-        [int(speed) for speed in list_of_speeds_without_title]
+    list_of_speeds_ints = [int(speed) for speed in list_of_speeds_without_title]
     for speed in list_of_speeds_ints:
         total_speed += speed
     result = total_speed / len(list_of_speeds_ints)
@@ -121,8 +120,7 @@ def total_speeding():
     list_of_speeds = operational_data[1]
     list_of_speeds_without_title = list_of_speeds[1:]
     total_speeders = 0
-    list_of_speeds_ints = \
-        [int(speed) for speed in list_of_speeds_without_title]
+    list_of_speeds_ints = [int(speed) for speed in list_of_speeds_without_title]
     for speed in list_of_speeds_ints:
         if speed > 80:
             total_speeders += 1
