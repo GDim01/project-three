@@ -10,34 +10,34 @@ The live version of the project is located at https://speed-survey-p3.herokuapp.
 
 - Enables the user to choose which funtionality of the program to utilise.
 
-#![Function Selection]()
+![Function Selection](assets/images/function-select.png)
 
 - __Data Selection__
 
   - Allows the user to select the day that they wish to analyse
 
-#![Controls Area](assets/images/controls-area.webp)
+![Data Selection](assets/images/data-selection.png)
 
 - __Average Speed__
 
   - Calculates the average speed on the road for a selected day
   - This function will allow the user to gauge the speed levels of traffic on the road
 
-#![Header](assets/images/header.webp)
+![Average Speed](assets/images/average-speed.png)
 
 - __Total Speeders__
 
   - The total speed function allows the user to see how many drivers were above the speed limit
   - The user can then see if the road has a speeding issue
 
-#![Scores](assets/images/scores.webp)
+![Total Speeders](assets/images/total-speeding.png)
 
 - __Hourly Counts__ 
 
   - The hourly counts function allows the user to see how many cars were on the road for every hour of the day
   - This shows the user at which times the road is busy, which could aid in implementation of variable speed limits as an example
 
-#![Game Area](assets/images/game-area.webp)
+![Hourly Counts](assets/images/hourly_counts.png)
 
 ### Features Left to Implement
 

@@ -193,9 +193,8 @@ def hourly_count():
             hourly_counts[22] += 1
         elif hour == "23":
             hourly_counts[23] += 1
-    print(f"""The number of cars for each hour,
-    starting at '00' is {hourly_counts}
-    """)
+    print(f"""The number of cars for each hour, \
+    starting at '00' is {hourly_counts}""")
 
 
 def main():
