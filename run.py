@@ -127,7 +127,7 @@ def total_speeding():
     for speed in list_of_speeds_ints:
         if speed > 80:
             total_speeders += 1
-    speeder_percentage = (round(total_speeders/total_cars, 1) * 100)
+    speeder_percentage = (round(total_speeders/total_cars, 3) * 100)
     print(f"The total number of cars over 80km/h were {total_speeders}")
     print(f"Out of a total of {total_cars}, which is {speeder_percentage}%")
 
@@ -193,8 +193,8 @@ def hourly_count():
             hourly_counts[22] += 1
         elif hour == "23":
             hourly_counts[23] += 1
-    print(f"""
-    The number of cars for each hour, starting at '00' is {hourly_counts}
+    print(f"""The number of cars for each hour,
+    starting at '00' is {hourly_counts}
     """)
 
 
