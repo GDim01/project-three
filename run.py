@@ -70,29 +70,30 @@ def data_selection():
     operational_data variable for use in other functions
     """
     global operational_data
+    global DATA
     data_choice = input("Select the day to analyse 1-7\n")
     if verify_selection(data_choice):
         print(f"You have selected day {data_choice}\n")
     if data_choice == "1":
-        new_data = operational_data[0:2]
+        new_data = DATA[0:2]
         operational_data = new_data
     elif data_choice == "2":
-        new_data = operational_data[2:4]
+        new_data = DATA[2:4]
         operational_data = new_data
     elif data_choice == "3":
-        new_data = operational_data[4:6]
+        new_data = DATA[4:6]
         operational_data = new_data
     elif data_choice == "4":
-        new_data = operational_data[6:8]
+        new_data = DATA[6:8]
         operational_data = new_data
     elif data_choice == "5":
-        new_data = operational_data[8:10]
+        new_data = DATA[8:10]
         operational_data = new_data
     elif data_choice == "6":
-        new_data = operational_data[10:12]
+        new_data = DATA[10:12]
         operational_data = new_data
     elif data_choice == "7":
-        new_data = operational_data[12:14]
+        new_data = DATA[12:14]
         operational_data = new_data
 
 
@@ -104,10 +105,11 @@ def average_speed():
     list_of_speeds = operational_data[1]
     list_of_speeds_without_title = list_of_speeds[1:]
     total_speed = 0
-    list_of_speeds_ints = [int(speed) for speed in list_of_speeds_without_title]
+    list_of_speeds_ints = \
+        [int(speed) for speed in list_of_speeds_without_title]
     for speed in list_of_speeds_ints:
         total_speed += speed
-    result = total_speed / len(list_of_speeds_ints)
+    result = round(total_speed / len(list_of_speeds_ints), 2)
     print(f"The average speed during the selected date was {result}\n")
 
 
@@ -119,11 +121,15 @@ def total_speeding():
     list_of_speeds = operational_data[1]
     list_of_speeds_without_title = list_of_speeds[1:]
     total_speeders = 0
-    list_of_speeds_ints = [int(speed) for speed in list_of_speeds_without_title]
+    list_of_speeds_ints = \
+        [int(speed) for speed in list_of_speeds_without_title]
+    total_cars = len(list_of_speeds_ints)
     for speed in list_of_speeds_ints:
         if speed > 80:
             total_speeders += 1
-    print(f"The total number of cars over 80km/h were {total_speeders}\n")
+    speeder_percentage = (round(total_speeders/total_cars, 1) * 100)
+    print(f"The total number of cars over 80km/h were {total_speeders}")
+    print(f"Out of a total of {total_cars}, which is {speeder_percentage}%")
 
 
 def hourly_count():
@@ -134,7 +140,8 @@ def hourly_count():
     list_of_times = operational_data[0]
     list_of_times_without_title = list_of_times[1:]
     hours_list = []
-    hourly_counts = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    hourly_counts = \
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     for hour in list_of_times_without_title:
         hours_list.append(hour[0:2])
     for hour in hours_list:
@@ -186,7 +193,9 @@ def hourly_count():
             hourly_counts[22] += 1
         elif hour == "23":
             hourly_counts[23] += 1
-    print(f"The number of cars for each hour, starting at '00' is {hourly_counts}")
+    print(f"""
+    The number of cars for each hour, starting at '00' is {hourly_counts}
+    """)
 
 
 def main():

@@ -1,31 +1,80 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Speed Survey Data Analysis
 
-Welcome GDim01,
+Speed Survey Data Analysis is a program designed to take in data from a speed survey and calculate specific values from it.
+It will be useful to someone that is interested in whether or not the road has the appropriate speed limit, or what the traffic levels are like.
+The live version of the project is located at https://speed-survey-p3.herokuapp.com/
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
+### Existing Features
 
-## Reminders
+- __Function Selection__
 
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
+- Enables the user to choose which funtionality of the program to utilise.
 
-## Creating the Heroku app
+#![Function Selection]()
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+- __Data Selection__
 
-1. `heroku/python`
-2. `heroku/nodejs`
+  - Allows the user to select the day that they wish to analyse
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+#![Controls Area](assets/images/controls-area.webp)
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+- __Average Speed__
 
-Connect your GitHub repository and deploy as normal.
+  - Calculates the average speed on the road for a selected day
+  - This function will allow the user to gauge the speed levels of traffic on the road
 
-## Constraints
+#![Header](assets/images/header.webp)
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
+- __Total Speeders__
 
------
-Happy coding!
+  - The total speed function allows the user to see how many drivers were above the speed limit
+  - The user can then see if the road has a speeding issue
+
+#![Scores](assets/images/scores.webp)
+
+- __Hourly Counts__ 
+
+  - The hourly counts function allows the user to see how many cars were on the road for every hour of the day
+  - This shows the user at which times the road is busy, which could aid in implementation of variable speed limits as an example
+
+#![Game Area](assets/images/game-area.webp)
+
+### Features Left to Implement
+
+- Allow the user to analyse the entire data simultaneously
+- Link the speeds and times for analysis e.g. at what time people were speeding at
+
+## Testing 
+
+The program has been manually tested by:
+- Inputting information that is not relevant (i.e. program "f" which is not an option)
+- Testing in the Gitpot and Heroku terminals
+
+## Bugs
+
+- When selecting a new date, the program would crash, as the source of the selection was being overwritten by the initial data selection.
+
+### Validator Testing 
+
+- CI Python Linter
+  - One error (E501 line too long)  [CI Python Linter](https://pep8ci.herokuapp.com/#)
+  - ![Python Linter](assets/images/python-linter.png)
+
+## Deployment
+
+The site was deployed using Code Insttitute's mock terminal for Heroku.
+
+- Steps for deployment
+  - Fork or clone this repository
+  - Create a new Heroku app
+  - Set the buildbacks to Python and NodeJS in that order
+  - Link the Heroki app to the repository
+  - Click on Deploy
+  - Wait a few moments for the project to build, which will be signified by a link appearing at the bottom
+
+## Credits 
+
+- Code Institute for the template used for the mock terminal
+- Google Sheets for the spreadsheet imported
+
+### Content 
