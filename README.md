@@ -76,5 +76,4 @@ The site was deployed using Code Insttitute's mock terminal for Heroku.
 
 - Code Institute for the template used for the mock terminal
 - Google Sheets for the spreadsheet imported
-
-### Content 
+- Love Sandwiches Code Institute project for basis of data validation function
